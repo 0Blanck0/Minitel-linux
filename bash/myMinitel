@@ -1,0 +1,77 @@
+#!/bin/bash
+    #################################################
+    #    echo "Welcome to the configuration mode"
+    #################################################
+
+. "menu/menu.sh"
+ac_inf() {
+    echo "Nothing to happen"
+
+    echo -n "Press enter to continue ... "
+    read response
+
+    return 1
+}
+ac_res() {
+    echo "Nothing to happen"
+
+    echo -n "Press enter to continue ... "
+    read response
+
+    return 1
+}
+ac_proc() {
+    echo "Nothing to happen"
+
+    echo -n "Press enter to continue ... "
+    read response
+
+    return 1
+}
+
+config() {
+    echo "#################################################"
+    echo "Welcome to the configuration mode"
+    echo "#################################################"
+
+    echo -n "Press enter to continue ... "
+    read response
+    . "menu/config_menu.sh"
+    return 1
+}
+
+
+actionX() {
+    return 0
+}
+
+
+#AC_START
+menuItems=(
+#    "I.   Informations"
+#    "I.   Réseaux"
+#    "I.   Processus"
+    "I.   Configurations"
+    "Q.   Exit  "
+)
+
+menuActions=(
+#    ac_inf
+#    ac_res
+#    ac_proc
+    config
+    actionX
+)
+
+
+menuTitle="   MyMinitel"
+menuFooter=" Enter=Select, Up/Down=Prev/Next Option"
+
+################################
+## Run Menu
+################################
+menuInit
+menuLoop
+
+
+exit 0

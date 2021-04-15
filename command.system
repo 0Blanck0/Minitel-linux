@@ -1,0 +1,82 @@
+////Informations Generale
+//Version expl
+lsb_release -a
+
+//uptime
+uptime -p
+
+//vers Kernel
+uname -r
+
+//Limite de fichiers ouverts
+ulimit -n
+
+//Limite de processus ouverts
+//MAXIMUMUM_SIZE _OF_PROCESS_SEGMENT
+ulimit -d
+
+//Liste des paquets installe
+dpkg-query -l | awk 'NR>3'
+
+//LISTE_BY_SEARCH
+dpkg -l NAME_PROCESS | awk 'NR>3'
+
+//////hardware
+//MEMORY
+/INF
+grep MemTotal /proc/meminfo
+/Percentage of Use
+free -h --mega
+
+//DISKS
+//Percentage & mount
+df -h
+
+//Informations reseaux
+//Liste IP
+ip a | grep inet
+
+//Liste interfaces
+ls -1 /sys/class/net
+
+//NbrPaquet all
+
+
+//route
+ip route
+
+////Forward IpV4
+
+//V4_GETINFO
+cat /proc/sys/net/ipv4/conf/all/forwarding
+
+//V4_DEACTIVATE_NON_PERMANENT
+sysctl -w net.ipv4.ip_forward=0
+    /IF FAILED TRY MANUALLY
+        echo 0 > /proc/sys/net/ipv4/ip_forward
+
+
+////Forward Ipv6
+
+//V6_GETINFO
+cat /proc/sys/net/ipv6/conf/all/forwarding
+
+//V6_DEACTIVATE_NON_PERMANENT
+echo 0 > cat /proc/sys/net/ipv6/conf/all/forwarding
+
+
+
+////Processus
+
+//GET All User PROCESS
+ps -u
+
+//Get info by PID
+ps -Flww -p PID
+
+//Kill
+kill SIGKILL PID
+
+//term
+Kill SIGTERM PID
+
